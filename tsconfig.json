@@ -1,5 +1,18 @@
 {
   "files": [],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/public/*": ["public/*"],
+      "@/pages/*": ["src/pages/*"],
+      "@/tasteless/*": ["src/tasteless/*"],
+      "@/hooks/*": ["src/tasteless/hooks/*"],
+      "@/contexts/*": ["src/tasteless/contexts/*"],
+      "@/services/*": ["src/services/*"],
+      "@/ui/*": ["src/ui/components/*"],
+      "@/routes/*": ["src/routes/*"]
+  },
+  },
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
