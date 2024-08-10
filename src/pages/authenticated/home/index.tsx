@@ -3,6 +3,7 @@ import { Hero } from "@/ui/components/hero";
 import CardMovieSmall from "@/ui/components/cardMovieSmall";
 
 import * as S from './styles'
+import { Rectangule } from "@/ui/components/icons";
 
 const cardMocks = [{
     id: 10101,
@@ -36,9 +37,15 @@ export default function Home() {
       <S.Container>
         <Hero />
         <S.SectionReleases>
-        {
-          cardMocks.map((card) => <CardMovieSmall key={card.id} data={card}/>)
-        }
+          <S.SectionTitle>
+            <Rectangule />
+            Últimos lançamentos
+          </S.SectionTitle>
+          <S.SectionBody>
+            {
+              cardMocks.map((card) => <CardMovieSmall key={card.id} data={card}/>)
+            }
+          </S.SectionBody>
         </S.SectionReleases>
       </S.Container>
     </Layout>
