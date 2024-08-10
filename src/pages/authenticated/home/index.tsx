@@ -1,5 +1,5 @@
 import Layout from "@/ui/components/template/layout";
-import Hero from "@/ui/components/hero";
+import { Hero } from "@/ui/components/hero";
 import CardMovieSmall from "@/ui/components/cardMovieSmall";
 
 import * as S from './styles'

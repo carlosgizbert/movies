@@ -23,7 +23,7 @@ const cardMocks = [{
 },
 ]
 
-export default function Hero() {
+export function Hero() {
   return (
     <S.Wrapper>
       <CardMovieBig data={{

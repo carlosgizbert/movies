@@ -8,8 +8,18 @@ export const Card = styled.div`
   width: 100%;
   height: 100%;
   transition: all 0.3s ease;
-
   cursor: pointer;
+
+  .button {
+    margin-top: 40px;
+    transition: all ease 0.8s;
+  }
+
+  &:hover {
+    .button {
+      margin-top: 64px;
+    }
+  }
 `;
 
 export const BackgroundImage = styled.div<{ imageUrl: string }>`
@@ -60,6 +70,7 @@ export const BackgroundImage = styled.div<{ imageUrl: string }>`
 `;
 
 export const Content = styled.div`
+  max-width: 80%;
   position: relative;
   z-index: 10;
   display: flex;
@@ -72,11 +83,8 @@ export const Content = styled.div`
   padding: 48px;
 `;
 
-export const Header = styled.header`
-  display: flex;
-`;
-
 export const Footer = styled.footer`
+  margin-top: auto;
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing.small};
@@ -151,4 +159,26 @@ export const ButtonLabel = styled.label`
   font-weight: ${({ theme }) => theme.fontWeight.semibold};
   font-size: 20px;
   cursor: pointer;
+`
+
+export const Description = styled.label`
+  font-size: ${({ theme }) => theme.fontSize.body.normal};
+  cursor: pointer;
+  margin: 0.25rem 0;
+  line-height: 22.4px;
+`
+
+export const Subtitle = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+`
+
+export const SubtitleDetails = styled.div`
+  display: flex;
+  gap: ${({ theme }) => theme.spacing.small};
+
+  .subtitle-detail-text {
+    color: ${({ theme }) => theme.colors.text10};
+  }
 `
