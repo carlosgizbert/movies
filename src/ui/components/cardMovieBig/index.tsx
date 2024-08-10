@@ -6,13 +6,18 @@ interface DataProps {
   note: number;
   title: string;
   imageUrl: string;
+  description: string;
+  views: number
+  minutes: number
+  generous: string[]
+  year: number
 }
 
 interface CardProps {
   data: DataProps;
 }
 
-export default function Card({ data }: Readonly<CardProps>) {
+export default function CardMovieBig({ data }: Readonly<CardProps>) {
   const { note, title, imageUrl } = data;
 
   return (

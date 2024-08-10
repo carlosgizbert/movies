@@ -1,5 +1,6 @@
 import Layout from "@/ui/components/template/layout";
-import Card from "./header/card";
+import Hero from "@/ui/components/hero";
+import CardMovieSmall from "@/ui/components/cardMovieSmall";
 
 import * as S from './styles'
 
@@ -32,9 +33,10 @@ const cardMocks = [{
 export default function Home() {
   return (
     <Layout>
+      <Hero />
       <S.SectionReleases>
       {
-        cardMocks.map((card) => <Card key={card.id} data={card}/>)
+        cardMocks.map((card) => <CardMovieSmall key={card.id} data={card}/>)
       }
       </S.SectionReleases>
     </Layout>

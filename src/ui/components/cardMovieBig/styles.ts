@@ -21,10 +21,10 @@ export const BackgroundImage = styled.div<{ imageUrl: string }>`
   background-image: url(${({ imageUrl }) => imageUrl});
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center center;
   border-radius: inherit;
   transition: all 1s ease;
   
-  box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.1);
 
   &::before {
     content: '';
@@ -35,8 +35,8 @@ export const BackgroundImage = styled.div<{ imageUrl: string }>`
     height: 100%;
     background: linear-gradient(
       to bottom, 
-      rgba(0, 0, 0, 0.5) 5%,
-      rgba(0, 0, 0, 0.5) 50%, 
+      rgba(0, 0, 0, 0.3) 1%,
+      rgba(0, 0, 0, 0.3) 50%, 
       rgba(0, 0, 0, 0.5) 100%
     );
     transition: all 0.5s ease;
@@ -47,7 +47,7 @@ export const BackgroundImage = styled.div<{ imageUrl: string }>`
     transition: all 0.5s ease;
     background: linear-gradient(
       to bottom, 
-      rgba(0, 0, 0, 0.5) 5%,
+      rgba(0, 0, 0, 0.5) 1%,
       rgba(0, 0, 0, 0.5) 50%,
       rgba(0, 0, 0, 0.8) 100%
     );
@@ -64,10 +64,13 @@ export const Content = styled.div`
   z-index: 10;
   display: flex;
   flex-direction: column;
-  min-height: 254px;
   justify-content: space-between;
   padding: ${({ theme }) => theme.spacing.medium};
   gap: ${({ theme }) => theme.spacing.medium};
+
+  @media screen and (width >= 720px) {
+    min-height: 80vh;
+  }
 `;
 
 export const Header = styled.header`
