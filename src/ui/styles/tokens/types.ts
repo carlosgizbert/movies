@@ -11,6 +11,8 @@ export type Colors = {
   solid20: string;
   text10: string;
   text20: string;
+  red10: string;
+  yellow10: string;
 };
 
 export type GridSpace = {

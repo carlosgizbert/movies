@@ -13,6 +13,8 @@ const colors: T.Colors = {
   solid20: "#7C7C7C",
   text10: "#B4B4B4",
   text20: "#EEEEEE",
+  red10: "#E11D48",
+  yellow10: "#EAB308",
 };
 
 const gridSpace: T.GridSpace = {

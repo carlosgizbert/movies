@@ -9,7 +9,7 @@ interface WrapperProps {
       background: {
         default: string;
         hover: string;
-      };
+      };  
     };
     disabled: {
       background: {

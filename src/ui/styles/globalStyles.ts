@@ -10,8 +10,8 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     font-family: 'Inter', sans-serif;
-    background-color: ${({ theme }) => theme.colors.rebecca_purple};
-    color: ${({ theme }) => theme.colors.dark_blue_grey};
+    background-color: ${({ theme }) => theme.colors.background10};
+    color: ${({ theme }) => theme.colors.text20};
 
     input[type=number]::-webkit-inner-spin-button, 
     input[type=number]::-webkit-outer-spin-button { 
