@@ -7,4 +7,16 @@ export const Wrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   color: ${({ theme: { colors }}) => colors.text20};
+
+  .rater-input {
+    input {
+      border-radius: 100%;
+    }
+    border-radius: 100%;
+  }
+`
+
+export const SearchIcon = styled.span`
+  padding: ${({ theme: { spacing } }) => spacing.small};
+  background-color: ${({ theme: { colors } }) => colors.interactive10};
 `

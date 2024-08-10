@@ -9,7 +9,7 @@ interface RootProps {
   endElement?: ReactNode
   inputProps?: ComponentProps<typeof Input>
   isRequired?: boolean
-  label: string
+  label?: string
   labelProps?: ComponentProps<typeof Label>
   onChange?: ChangeEventHandler<HTMLInputElement>
   placeholder?: string
@@ -30,10 +30,12 @@ export function Root({
   ...props
 }: Readonly<RootProps>) {
   return (
-    <Wrapper {...props}>
-      <Label {...labelProps}>
+    <Wrapper {...props} className='rater-input'>
+      {label && (
+        <Label {...labelProps}>
         {label} {isRequired && <S.Asterisk>*</S.Asterisk>}
       </Label>
+      )}
       <Input
         placeholder={placeholder}
         onChange={onChange}

@@ -9,8 +9,8 @@ export const StarFilled = (props: SVGAttributes<SVGPathElement>) => (
 
 export const StarSemi = (props: SVGAttributes<SVGPathElement>) => (
   <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M12 2.6665L15.09 8.9265L22 9.9365L17 14.8065L18.18 21.6865L12 18.4365L5.82 21.6865L7 14.8065L2 9.9365L8.91 8.9265L12 2.6665Z" stroke="#313131" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-  <path d="M12 18.4665L5.8 21.6665L7 14.7665L2 9.9665L9 8.9665L12 2.6665" fill="#EAB308"/>
+  <path d="M12 2.6665L15.09 8.9265L22 9.9365L17 14.8065L18.18 21.6865L12 18.4365L5.82 21.6865L7 14.8065L2 9.9365L8.91 8.9265L12 2.6665Z" stroke="#313131" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props} />
+  <path d="M12 18.4665L5.8 21.6665L7 14.7665L2 9.9665L9 8.9665L12 2.6665" fill="#EAB308" {...props} />
   <path d="M12 18.4665L5.8 21.6665L7 14.7665L2 9.9665L9 8.9665L12 2.6665V18.4665Z" stroke="#EAB308" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props} />
   </svg>
 )
@@ -36,5 +36,25 @@ export const Fire = (props: SVGAttributes<SVGPathElement>) => (
 export const Rectangule = (props: SVGAttributes<SVGPathElement>) => (
   <svg width="4" height="29" viewBox="0 0 4 29" fill="none" xmlns="http://www.w3.org/2000/svg">
   <rect width="4" height="29" rx="2" fill="#EEEEEE" {...props} />
+  </svg>
+)
+
+export const Search = (props: SVGAttributes<SVGPathElement>) => (
+  <svg width="21" height="19" viewBox="0 0 21 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g filter="url(#filter0_d_13_3157)">
+  <path d="M18 16.5L14.4167 12.9167M16.3333 8.16667C16.3333 11.8486 13.3486 14.8333 9.66667 14.8333C5.98477 14.8333 3 11.8486 3 8.16667C3 4.48477 5.98477 1.5 9.66667 1.5C13.3486 1.5 16.3333 4.48477 16.3333 8.16667Z" stroke="#EEEEEE" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" shapeRendering="crispEdges" {...props} />
+  </g>
+  <defs>
+  <filter id="filter0_d_13_3157" x="-2" y="0.5" width="25" height="25" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+  <feFlood floodOpacity="0" result="BackgroundImageFix"/>
+  <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+  <feOffset dy="4"/>
+  <feGaussianBlur stdDeviation="2"/>
+  <feComposite in2="hardAlpha" operator="out"/>
+  <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+  <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_13_3157"/>
+  <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_13_3157" result="shape"/>
+  </filter>
+  </defs>
   </svg>
 )
