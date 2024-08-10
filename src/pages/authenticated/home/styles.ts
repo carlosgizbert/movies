@@ -12,13 +12,6 @@ export const SectionReleases = styled.section`
   gap: ${({ theme }) => theme.margin.large};
 `
 
-export const SectionTitle = styled.section`
-  display: flex;
-  align-items: center;
-  gap: ${({ theme }) => theme.margin.medium};
-  font-size: ${({ theme }) => theme.fontSize.body.medium};
-`
-
 export const SectionBody = styled.section`
   display: flex;
   gap: ${({ theme }) => theme.margin.medium};

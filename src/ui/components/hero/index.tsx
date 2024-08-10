@@ -2,6 +2,7 @@ import CardMovieBig from '@/ui/components/cardMovieBig'
 import CardMovieSmall from '@/ui/components/cardMovieSmall'
 
 import * as S from './styles'
+import SectionTitle from '../sectionTitle'
 
 const cardMocks = [{
   id: 10101,
@@ -38,6 +39,9 @@ export function Hero() {
         }}
       />
       <S.SmallCards>
+        <SectionTitle>
+          Destaques também
+        </SectionTitle>
         {
           cardMocks.map((card) => <CardMovieSmall key={card.id} data={card}/>)
         }
