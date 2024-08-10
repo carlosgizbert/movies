@@ -34,6 +34,7 @@ export const Wrapper = styled.button<WrapperProps>`
   height: ${({ height }) => (height ? `${height}px` : "auto")};;
 
   color: ${({ theme }) => theme.colors.text20};
+  font-weight: ${({ theme }) => theme.fontWeight.semibold};
   font-size: ${({ theme }) => theme.fontSize.body.small};
 
   border: ${({ theme }) => theme.rounded.small};

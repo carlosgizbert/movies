@@ -64,13 +64,12 @@ export const Content = styled.div`
   z-index: 10;
   display: flex;
   flex-direction: column;
+  height: 100%;
   justify-content: space-between;
   padding: ${({ theme }) => theme.spacing.medium};
   gap: ${({ theme }) => theme.spacing.medium};
 
-  @media screen and (width >= 720px) {
-    min-height: 80vh;
-  }
+  padding: 48px;
 `;
 
 export const Header = styled.header`
@@ -108,6 +107,22 @@ export const RatingStar = styled.span`
   }
 `;
 
+export const Emphasis = styled.span`
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+  gap: ${({ theme }) => theme.spacing.small};
+  width: fit-content;
+  background-color: ${({ theme }) => hexToRgba(theme.colors.text20, 0.3)};
+  font-weight: ${({ theme }) => theme.fontWeight.semibold};
+  border-radius: ${({ theme }) => theme.rounded.xsmall};
+  padding: ${({ theme }) => theme.spacing.small};
+  font-size: 20px;
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+  transition: all 0.5s ease;
+`;
+
 export const ButtonFavorite = styled.span`
   display: flex;
   gap: 0.25rem;
@@ -128,6 +143,12 @@ export const ButtonFavorite = styled.span`
 `;
 
 export const Title = styled.span`
-  font-size: ${({ theme }) => theme.fontSize.title.small};
+  font-size: ${({ theme }) => theme.fontSize.title.large};
   font-weight: ${({ theme }) => theme.fontWeight.bold};
 `;
+
+export const ButtonLabel = styled.label`
+  font-weight: ${({ theme }) => theme.fontWeight.semibold};
+  font-size: 20px;
+  cursor: pointer;
+`

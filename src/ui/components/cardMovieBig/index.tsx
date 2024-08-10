@@ -1,5 +1,5 @@
 import { Button } from '@/ui/components';
-import { Play, StarDefault, StarFilled } from '@/ui/components/icons';
+import { Fire, Play, StarDefault, StarFilled } from '@/ui/components/icons';
 import * as S from './styles';
 
 interface DataProps {
@@ -36,9 +36,15 @@ export default function CardMovieBig({ data }: Readonly<CardProps>) {
           </S.Rating>
         </S.Header>
         <S.Footer>
+          <S.Emphasis>
+            <Fire />
+            Em destaque
+          </S.Emphasis>
           <S.Title>{title}</S.Title>
-          <Button variant='secondary' size='small'>
-            Assistir ao trailer
+          <Button variant='secondary'>
+            <S.ButtonLabel>
+              Assistir ao trailer
+            </S.ButtonLabel>
             <Play />
           </Button>
         </S.Footer>
