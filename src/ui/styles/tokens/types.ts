@@ -79,6 +79,7 @@ export type FontSize = {
 };
 
 export type FontWeight = {
-  normal: string;
+  regular: string;
+  semibold: string;
   bold: string;
 };

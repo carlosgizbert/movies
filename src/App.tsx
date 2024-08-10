@@ -1,22 +1,10 @@
 import './App.css'
-import { Button } from './ui/components/button'
-import { Field } from './ui/components/field'
-import Navbar from './ui/components/navbar'
+import Home from './pages/authenticated/home'
 
 function App() {
 
   return (
-    <>
-      <Navbar />
-      <Button>Fazer login</Button>
-      <Field
-        label='Ola'
-        placeholder='Placeholder'
-        isRequired
-        startElement={<div>Ola</div>}
-        endElement={<div>Ola</div>}
-      />
-    </>
+    <Home />
   )
 }
 

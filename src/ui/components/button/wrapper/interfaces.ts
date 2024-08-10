@@ -14,3 +14,11 @@ export interface WrapperColors {
     };
   };
 }
+
+export interface HeightVariantProps {
+  small: number
+  default: number
+}
+
+export type Size = 'default' | 'small'
+export type Variant = 'default' | 'secondary'

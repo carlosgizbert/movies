@@ -71,7 +71,8 @@ const fontSizeDefault: T.FontSize = {
 };
 
 const fontWeightDefault: T.FontWeight = {
-  normal: "400",
+  regular: "400",
+  semibold: "500",
   bold: "600"
 };
 

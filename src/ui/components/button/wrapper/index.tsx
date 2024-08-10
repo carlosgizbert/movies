@@ -1,36 +1,28 @@
-import { ButtonHTMLAttributes } from 'react'
-import { getColorVariant } from './functions'
-import * as S from './styles'
+import { ComponentProps } from 'react'
+import { getBackgroundOpacityVariant, getColorVariant, getHeightVariant } from './functions'
+import { Size, Variant } from './interfaces'
+import { Wrapper as StyledWrapper } from './styles'
 
-interface HeightVariantProps {
-  small: number
-  default: number
-}
-
-type Size = 'default' | 'small'
-
-interface WrapperProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface WrapperProps extends Omit<ComponentProps<typeof StyledWrapper>, 'colors'| 'backgroundOpacity'> {
   size?: Size
-}
-
-const heightVariant: HeightVariantProps = {
-  small: 40,
-  default: 48
+  variant?: Variant
 }
 
 export function Wrapper({
   size = 'default',
+  variant = 'default',
   children,
   ...props
 }: Readonly<WrapperProps>) {
 
   return (
-    <S.Wrapper
+    <StyledWrapper
       {...props}
-      colors={getColorVariant()}
-      height={heightVariant[size]}
+      colors={getColorVariant(variant)}
+      height={getHeightVariant(size)}
+      backgroundOpacity={getBackgroundOpacityVariant(variant)}
     >
       {children}
-    </S.Wrapper>
+    </StyledWrapper>
   )
 }
