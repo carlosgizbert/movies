@@ -2,6 +2,7 @@ import Layout from "@/ui/components/template/layout";
 import { Hero } from "@/ui/components/hero";
 import CardMovieSmall from "@/ui/components/cardMovieSmall";
 import SectionTitle from "@/ui/components/sectionTitle";
+import ModalLogin from "./modal";
 import * as S from './styles'
 
 const cardMocks = [{
@@ -45,6 +46,7 @@ export default function Home() {
             }
           </S.SectionBody>
         </S.SectionReleases>
+        <ModalLogin />
       </S.Container>
     </Layout>
   )

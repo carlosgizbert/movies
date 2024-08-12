@@ -44,8 +44,6 @@ export const Wrapper = styled.button<WrapperProps>`
     getColorValue(props.theme, props.colors.default.background.default),
     props.backgroundOpacity,
   )};
-  backdrop-filter: blur(1px);
-  -webkit-backdrop-filter: blur(1px);
   
   cursor: pointer;
   transition: background-color ease 0.2s;
