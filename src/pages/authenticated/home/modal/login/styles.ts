@@ -1,10 +1,19 @@
 import styled from "styled-components";
 
 export const Header = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   gap: ${({ theme }) => theme.spacing.small};
+`
+
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: ${({ theme }) => theme.spacing.large};
+  gap: ${({ theme }) => theme.spacing.large};
 `
 
 export const Title = styled.h1`

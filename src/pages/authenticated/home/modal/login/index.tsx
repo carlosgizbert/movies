@@ -11,6 +11,7 @@ export const ModalLogin = ({ onClickRegister }: ModalLoginProps) => (
   <Modal
       type="unclosable"
       padding={48}
+      width={481}
       open
       title={
         <S.Header>
@@ -19,13 +20,15 @@ export const ModalLogin = ({ onClickRegister }: ModalLoginProps) => (
         </S.Header>
       }
     >
-      <Field label='E-mail' placeholder='Digite seu e-mail' isRequired />
-      <Field label='Senha' placeholder='Digite sua senha' isRequired />
-      <Button fullWidth>
-        Fazer login
-      </Button>
-      <S.Text>
-        Não tem uma conta ainda? <S.Redirect onClick={() => onClickRegister()}>Criar uma conta</S.Redirect>
-      </S.Text>
+      <S.Container>
+        <Field label='E-mail' placeholder='Digite seu e-mail' isRequired />
+        <Field label='Senha' placeholder='Digite sua senha' isRequired />
+        <Button fullWidth>
+          Fazer login
+        </Button>
+        <S.Text>
+          Não tem uma conta ainda? <S.Redirect onClick={() => onClickRegister()}>Criar uma conta</S.Redirect>
+        </S.Text>
+      </S.Container>
     </Modal>
 )
