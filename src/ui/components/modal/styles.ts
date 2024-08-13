@@ -39,6 +39,7 @@ export const ModalBox = styled.div<{ width?: number, padding?: number }>`
   padding: ${(props) => props.padding ? `${props.padding}px` : props.theme.spacing.medium};
   background-color: ${(props) => props.theme.colors.background10};
   color: ${(props) => props.theme.colors.text20};
+  border: 4px solid ${(props) => props.theme.colors.interactive10};
   border-radius: ${(props) => props.theme.rounded.medium};
   box-shadow: 0 3px 7px rgb(0 0 0 / 30%);
   z-index: 102;

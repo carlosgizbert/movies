@@ -5,8 +5,9 @@ import { Button } from "@/ui/components";
 import { Modal } from "@/ui/components/modal";
 import { registerFormSchema, RegisterFormType } from "./schema";
 import { ErrorMessage } from "@/ui/components/errorMessage";
-import * as S from "./styles";
 import { FieldWrapper } from "@/ui/components/fieldWrapper";
+import * as S from "./styles";
+
 interface ModalRegisterProps {
   onClickLogin: () => void;
 }

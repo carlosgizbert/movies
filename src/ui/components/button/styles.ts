@@ -46,7 +46,7 @@ export const Wrapper = styled.button<WrapperProps>`
   )};
   
   cursor: pointer;
-  transition: background-color ease 0.2s;
+  transition: ease all 0.5s;
 
   &:hover {
     background-color: ${(props) => hexToRgba(

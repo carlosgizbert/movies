@@ -7,12 +7,18 @@ import { loginFormSchema, LoginFormType } from "./schema";
 import { ErrorMessage } from "@/ui/components/errorMessage";
 import { FieldWrapper } from "../register/styles";
 import * as S from "./styles";
+import { useState } from "react";
+import { EyeClosed, EyeOpened } from "@/ui/components/icons";
 
 interface ModalLoginProps {
   onClickRegister: () => void;
 }
 
 export const ModalLogin = ({ onClickRegister }: ModalLoginProps) => {
+  const [passIsVisible, setPassIsVisible] = useState<boolean>(false);
+
+  const togglePassVisibility = () => setPassIsVisible(!passIsVisible);
+
   const {
     register,
     handleSubmit,
@@ -56,6 +62,18 @@ export const ModalLogin = ({ onClickRegister }: ModalLoginProps) => {
               label="Senha"
               placeholder="Digite sua senha"
               isRequired
+              endElement={
+                <S.ButtonEye
+                  type="button"
+                  onClick={togglePassVisibility}
+                >
+                  {passIsVisible ? (
+                    <EyeClosed />
+                  ) : (
+                    <EyeOpened />
+                  )}
+                </S.ButtonEye>
+              }
             />
             {errors.password?.message && (
               <ErrorMessage>{errors.password?.message}</ErrorMessage>

@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
   font-size: ${({ theme }) => theme.fontSize.body.small};
   background-color: ${({ theme }) => theme.colors.interactive10};
 
-  transition: background-color ease 0.2s;
+  transition: ease all 0.5s;
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.interactive30};
