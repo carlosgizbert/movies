@@ -42,21 +42,3 @@ export const Redirect = styled.span`
   font-weight: ${({ theme }) => theme.fontWeight.bold};
   cursor: pointer;
 `
-
-export const ButtonEye = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: ${({ theme }) => theme.rounded.full};
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  height: 36px;
-  width: 40px;
-
-  transition: ease all 0.5s;
-
-  &:hover {
-    background: ${({ theme }) => theme.colors.background10};
-  }
-`

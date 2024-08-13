@@ -9,6 +9,7 @@ import { FieldWrapper } from "../register/styles";
 import * as S from "./styles";
 import { useState } from "react";
 import { EyeClosed, EyeOpened } from "@/ui/components/icons";
+import { ButtonEye } from "../styles";
 
 interface ModalLoginProps {
   onClickRegister: () => void;
@@ -22,7 +23,7 @@ export const ModalLogin = ({ onClickRegister }: ModalLoginProps) => {
   const {
     register,
     handleSubmit,
-    formState: { errors, touchedFields, dirtyFields, isValid },
+    formState: { errors },
   } = useForm<LoginFormType>({
     mode: "onChange",
     resolver: zodResolver(loginFormSchema),
@@ -58,12 +59,13 @@ export const ModalLogin = ({ onClickRegister }: ModalLoginProps) => {
           </FieldWrapper>
           <FieldWrapper>
             <Field
-              {...register("email")}
+              {...register("password")}
+              type={passIsVisible ? 'text' : 'password'}
               label="Senha"
               placeholder="Digite sua senha"
               isRequired
               endElement={
-                <S.ButtonEye
+                <ButtonEye
                   type="button"
                   onClick={togglePassVisibility}
                 >
@@ -72,7 +74,7 @@ export const ModalLogin = ({ onClickRegister }: ModalLoginProps) => {
                   ) : (
                     <EyeOpened />
                   )}
-                </S.ButtonEye>
+                </ButtonEye>
               }
             />
             {errors.password?.message && (

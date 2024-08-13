@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Field } from "@/ui/components/field";
@@ -6,13 +7,19 @@ import { Modal } from "@/ui/components/modal";
 import { registerFormSchema, RegisterFormType } from "./schema";
 import { ErrorMessage } from "@/ui/components/errorMessage";
 import { FieldWrapper } from "@/ui/components/fieldWrapper";
+import { EyeClosed, EyeOpened } from "@/ui/components/icons";
 import * as S from "./styles";
+import { ButtonEye } from "../styles";
 
 interface ModalRegisterProps {
   onClickLogin: () => void;
 }
 
 export const ModalRegister = ({ onClickLogin }: ModalRegisterProps) => {
+  const [passIsVisible, setPassIsVisible] = useState<boolean>(false);
+
+  const togglePassVisibility = () => setPassIsVisible(!passIsVisible);
+
   const {
     register,
     handleSubmit,
@@ -65,13 +72,25 @@ export const ModalRegister = ({ onClickLogin }: ModalRegisterProps) => {
           <FieldWrapper>
             <Field
               {...register("password")}
+              type={passIsVisible ? 'text' : 'password'}
               label="Senha"
               placeholder="Digite sua senha"
-              type="password"
               isRequired
+              endElement={
+                <ButtonEye
+                  type="button"
+                  onClick={togglePassVisibility}
+                >
+                  {passIsVisible ? (
+                    <EyeClosed />
+                  ) : (
+                    <EyeOpened />
+                  )}
+                </ButtonEye>
+              }
             />
-            {errors.password && (
-              <ErrorMessage>{errors.password.message}</ErrorMessage>
+            {errors.password?.message && (
+              <ErrorMessage>{errors.password?.message}</ErrorMessage>
             )}
           </FieldWrapper>
           <FieldWrapper>
