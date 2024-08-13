@@ -1,4 +1,5 @@
 import {
+  forwardRef,
   HTMLAttributes,
   InputHTMLAttributes,
   ReactNode
@@ -11,19 +12,17 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   wrapperProps?: HTMLAttributes<HTMLDivElement>
 }
 
-export function Input({
-  startElement,
-  endElement,
-  wrapperProps,
-  ...props
-}: Readonly<InputProps>) {
+export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
+  { startElement, endElement, wrapperProps, ...props },
+  ref
+) {
   return (
     <S.Wrapper {...wrapperProps}>
       <S.StartAdornment>
         {startElement}
-        <S.Input {...props} />
+        <S.Input ref={ref} {...props} />
       </S.StartAdornment>
       {endElement}
     </S.Wrapper>
   )
-}
+});

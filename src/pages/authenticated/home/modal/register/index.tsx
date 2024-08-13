@@ -1,14 +1,31 @@
-import { Field } from '@/ui/components/field'
-import { Button } from '@/ui/components'
-import { Modal } from '@/ui/components/modal'
-import * as S from './styles'
-
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Field } from "@/ui/components/field";
+import { Button } from "@/ui/components";
+import { Modal } from "@/ui/components/modal";
+import { registerFormSchema, RegisterFormType } from "./schema";
+import { ErrorMessage } from "@/ui/components/errorMessage";
+import * as S from "./styles";
+import { FieldWrapper } from "@/ui/components/fieldWrapper";
 interface ModalRegisterProps {
-  onClickLogin: () => void
+  onClickLogin: () => void;
 }
 
-export const ModalRegister = ({ onClickLogin }: ModalRegisterProps) => (
-  <Modal
+export const ModalRegister = ({ onClickLogin }: ModalRegisterProps) => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<RegisterFormType>({
+    mode: "onChange",
+    resolver: zodResolver(registerFormSchema),
+  });
+
+  function handleRegister(formData: RegisterFormType) {
+  }
+
+  return (
+    <Modal
       type="unclosable"
       padding={48}
       open
@@ -21,16 +38,62 @@ export const ModalRegister = ({ onClickLogin }: ModalRegisterProps) => (
       }
     >
       <S.Container>
-        <Field label='Nome completo' placeholder='Digite seu nome' isRequired />
-        <Field label='E-mail' placeholder='Digite seu e-mail' isRequired />
-        <Field label='Senha' placeholder='Digite sua senha' isRequired />
-        <Field label='Confirmar senha' placeholder='Confirme sua senha' isRequired />
-        <Button fullWidth>
-          Fazer login
-        </Button>
+        <form onSubmit={handleSubmit(handleRegister)}>
+          <FieldWrapper>
+            <Field
+              {...register("username")}
+              label="Nome completo"
+              placeholder="Digite seu nome"
+              isRequired
+            />
+            {errors.username && (
+              <ErrorMessage>{errors.username.message}</ErrorMessage>
+            )}
+          </FieldWrapper>
+          <FieldWrapper>
+            <Field
+              {...register("email")}
+              label="E-mail"
+              placeholder="Digite seu e-mail"
+              isRequired
+            />
+            {errors.email && (
+              <ErrorMessage>{errors.email.message}</ErrorMessage>
+            )}
+          </FieldWrapper>
+          <FieldWrapper>
+            <Field
+              {...register("password")}
+              label="Senha"
+              placeholder="Digite sua senha"
+              type="password"
+              isRequired
+            />
+            {errors.password && (
+              <ErrorMessage>{errors.password.message}</ErrorMessage>
+            )}
+          </FieldWrapper>
+          <FieldWrapper>
+            <Field
+              {...register("confirmPassword")}
+              label="Confirmar senha"
+              placeholder="Confirme sua senha"
+              type="password"
+              isRequired
+            />
+            {errors.confirmPassword && (
+              <ErrorMessage>{errors.confirmPassword.message}</ErrorMessage>
+            )}
+          </FieldWrapper>
+          <Button fullWidth type="submit">
+            Registrar
+          </Button>
+        </form>
         <S.Text>
-          Já tem uma conta? <S.Redirect onClick={() => onClickLogin()}>Fazer login</S.Redirect>
+          Já tem uma conta?{" "}
+          <S.Redirect onClick={onClickLogin}>Fazer login</S.Redirect>
         </S.Text>
       </S.Container>
     </Modal>
-)
+  );
+};

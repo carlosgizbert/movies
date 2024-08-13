@@ -14,6 +14,12 @@ export const Container = styled.div`
   flex-direction: column;
   margin-top: ${({ theme }) => theme.spacing.large};
   gap: ${({ theme }) => theme.spacing.large};
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: ${({ theme }) => theme.spacing.large};
+  }
 `
 
 export const Title = styled.h1`
@@ -35,4 +41,10 @@ export const Redirect = styled.span`
   color: ${({ theme }) => theme.colors.text20};
   font-weight: ${({ theme }) => theme.fontWeight.bold};
   cursor: pointer;
+`
+
+export const FieldWrapper = styled.h1`
+  display: flex;
+  flex-direction: column;
+  gap: ${({ theme }) => theme.spacing.small};
 `

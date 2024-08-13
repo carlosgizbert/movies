@@ -1,49 +1,53 @@
-import { ChangeEventHandler, ComponentProps, ReactNode } from 'react'
-import { Wrapper } from '../wrapper'
-import { Label } from '../label'
-import { Input } from '../input'
+import { forwardRef, ChangeEventHandler, ComponentProps, InputHTMLAttributes, ReactNode } from 'react';
+import { Wrapper } from '../wrapper';
+import { Label } from '../label';
+import { Input } from '../input';
 
-import * as S from './styles'
+import * as S from './styles';
 
-interface RootProps {
-  endElement?: ReactNode
-  inputProps?: ComponentProps<typeof Input>
-  isRequired?: boolean
-  label?: string
-  labelProps?: ComponentProps<typeof Label>
-  onChange?: ChangeEventHandler<HTMLInputElement>
-  placeholder?: string
-  startElement?: ReactNode
-  value?: string | number | readonly string[]
+interface RootProps extends InputHTMLAttributes<HTMLInputElement> {
+  endElement?: ReactNode;
+  wrapperProps?: ComponentProps<typeof Wrapper>;
+  isRequired?: boolean;
+  label?: string;
+  labelProps?: ComponentProps<typeof Label>;
+  onChange?: ChangeEventHandler<HTMLInputElement>;
+  placeholder?: string;
+  startElement?: ReactNode;
+  value?: string | number | readonly string[];
 }
 
-export function Root({
-  label,
-  inputProps,
-  labelProps,
-  placeholder,
-  isRequired,
-  startElement,
-  endElement,
-  onChange,
-  value,
-  ...props
-}: Readonly<RootProps>) {
+export const Root = forwardRef<HTMLInputElement, RootProps>(function Root(
+  {
+    label,
+    wrapperProps,
+    labelProps,
+    placeholder,
+    isRequired,
+    startElement,
+    endElement,
+    onChange,
+    value,
+    ...props
+  }: Readonly<RootProps>,
+  ref
+) {
   return (
-    <Wrapper {...props} className='rater-input'>
+    <Wrapper {...wrapperProps} className="rater-input">
       {label && (
         <Label {...labelProps}>
-        {label} {isRequired && <S.Asterisk>*</S.Asterisk>}
-      </Label>
+          {label} {isRequired && <S.Asterisk>*</S.Asterisk>}
+        </Label>
       )}
       <Input
+        ref={ref}
         placeholder={placeholder}
         onChange={onChange}
         value={value}
         startElement={startElement}
         endElement={endElement}
-        {...inputProps}
+        {...props}
       />
     </Wrapper>
-  )
-}
+  );
+});
