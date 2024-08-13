@@ -4,7 +4,7 @@ import { ModalLogin } from './login'
 
 type View = 'login' | 'register'
 
-export default function ModalGlobal() {
+export function ModalGlobal() {
   const [view, setView] = useState<View>('login')
 
   const modals = {

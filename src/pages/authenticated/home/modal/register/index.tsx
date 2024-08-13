@@ -8,8 +8,10 @@ import { registerFormSchema, RegisterFormType } from "./schema";
 import { ErrorMessage } from "@/ui/components/errorMessage";
 import { FieldWrapper } from "@/ui/components/fieldWrapper";
 import { EyeClosed, EyeOpened } from "@/ui/components/icons";
-import * as S from "./styles";
 import { ButtonEye } from "../styles";
+import { Link } from "@/ui/components/link";
+
+import * as S from "./styles";
 
 interface ModalRegisterProps {
   onClickLogin: () => void;
@@ -111,7 +113,7 @@ export const ModalRegister = ({ onClickLogin }: ModalRegisterProps) => {
         </form>
         <S.Text>
           Já tem uma conta?{" "}
-          <S.Redirect onClick={onClickLogin}>Fazer login</S.Redirect>
+          <Link onClick={onClickLogin}>Fazer login</Link>
         </S.Text>
       </S.Container>
     </Modal>

@@ -17,7 +17,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
   ref
 ) {
   return (
-    <S.Wrapper {...wrapperProps}>
+    <S.Wrapper {...wrapperProps} className='rater-input-wrapper'>
       <S.StartAdornment>
         {startElement}
         <S.Input ref={ref} {...props} />

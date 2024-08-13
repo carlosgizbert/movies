@@ -6,10 +6,11 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { loginFormSchema, LoginFormType } from "./schema";
 import { ErrorMessage } from "@/ui/components/errorMessage";
 import { FieldWrapper } from "../register/styles";
-import * as S from "./styles";
 import { useState } from "react";
 import { EyeClosed, EyeOpened } from "@/ui/components/icons";
 import { ButtonEye } from "../styles";
+import { Link } from "@/ui/components/link";
+import * as S from "./styles";
 
 interface ModalLoginProps {
   onClickRegister: () => void;
@@ -85,9 +86,9 @@ export const ModalLogin = ({ onClickRegister }: ModalLoginProps) => {
         </form>
         <S.Text>
           Não tem uma conta ainda?{" "}
-          <S.Redirect onClick={() => onClickRegister()}>
+          <Link onClick={() => onClickRegister()}>
             Criar uma conta
-          </S.Redirect>
+          </Link>
         </S.Text>
       </S.Container>
     </Modal>

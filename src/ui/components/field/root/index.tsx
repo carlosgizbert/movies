@@ -33,14 +33,15 @@ export const Root = forwardRef<HTMLInputElement, RootProps>(function Root(
   ref
 ) {
   return (
-    <Wrapper {...wrapperProps} className="rater-input">
+    <Wrapper {...wrapperProps} className="rater-field-wrapper">
       {label && (
-        <Label {...labelProps}>
+        <Label {...labelProps} className="rater-field-label">
           {label} {isRequired && <S.Asterisk>*</S.Asterisk>}
         </Label>
       )}
       <Input
         ref={ref}
+        className="rater-field-input"
         placeholder={placeholder}
         onChange={onChange}
         value={value}
