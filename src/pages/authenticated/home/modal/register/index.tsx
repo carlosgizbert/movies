@@ -10,7 +10,7 @@ import { FieldWrapper } from "@/ui/components/fieldWrapper";
 import { EyeClosed, EyeOpened } from "@/ui/components/icons";
 import { ButtonEye } from "../styles";
 import { Link } from "@/ui/components/link";
-
+import { useCreateAccount } from "@/services/user";
 import * as S from "./styles";
 
 interface ModalRegisterProps {
@@ -24,6 +24,18 @@ export const ModalRegister = ({ onClickLogin, onFakeRegister }: ModalRegisterPro
   const togglePassVisibility = () => setPassIsVisible(!passIsVisible);
 
   const {
+    mutate: createAccount,
+    isPending
+  } = useCreateAccount({
+    onSuccess: () => {
+
+    },
+    onError: () => {
+
+    }
+  })
+
+  const {
     register,
     handleSubmit,
     formState: { errors },
@@ -33,7 +45,7 @@ export const ModalRegister = ({ onClickLogin, onFakeRegister }: ModalRegisterPro
   });
 
   function handleRegister(formData: RegisterFormType) {
-    onFakeRegister()
+    createAccount(formData)
   }
 
   return (
@@ -50,16 +62,21 @@ export const ModalRegister = ({ onClickLogin, onFakeRegister }: ModalRegisterPro
       }
     >
       <S.Container>
-        <form onSubmit={handleSubmit(handleRegister)}>
+        {isPending && (
+          <S.Title>Por favor aguarde...</S.Title>
+        )}
+        {!isPending && (
+          <>
+          <form onSubmit={handleSubmit(handleRegister)}>
           <FieldWrapper>
             <Field
-              {...register("username")}
+              {...register("name")}
               label="Nome completo"
               placeholder="Digite seu nome"
               isRequired
             />
-            {errors.username && (
-              <ErrorMessage>{errors.username.message}</ErrorMessage>
+            {errors.name && (
+              <ErrorMessage>{errors.name.message}</ErrorMessage>
             )}
           </FieldWrapper>
           <FieldWrapper>
@@ -117,6 +134,8 @@ export const ModalRegister = ({ onClickLogin, onFakeRegister }: ModalRegisterPro
           Já tem uma conta?{" "}
           <Link onClick={onClickLogin}>Fazer login</Link>
         </S.Text>
+          </>
+        )}
       </S.Container>
     </Modal>
   );

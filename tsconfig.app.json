@@ -22,6 +22,7 @@
     "baseUrl": ".",
     "paths": {
       "@/public/*": ["public/*"],
+      "@/config/*": ["src/config/*"],
       "@/pages/*": ["src/pages/*"],
       "@/tasteless/*": ["src/tasteless/*"],
       "@/hooks/*": ["src/tasteless/hooks/*"],

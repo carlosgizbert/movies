@@ -2,7 +2,7 @@ import { z } from "zod";
 
 export const registerFormSchema = z
   .object({
-    username: z
+    name: z
       .string()
       .min(3, "Digite um nome maior")
       .max(30, "Digite um nome menor")
