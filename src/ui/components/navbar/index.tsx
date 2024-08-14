@@ -1,9 +1,8 @@
 import { Button } from "@/ui/components/button"
 import { Logo } from "@/ui/components/logo"
 import { Field } from "@/ui/components/field"
-
-import * as S from "./styles"
 import { Search } from "../icons"
+import * as S from "./styles"
 
 export default function Navbar() {
   return (
