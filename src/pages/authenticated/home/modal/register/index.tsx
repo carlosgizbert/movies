@@ -15,9 +15,10 @@ import * as S from "./styles";
 
 interface ModalRegisterProps {
   onClickLogin: () => void;
+  onFakeRegister: () => void;
 }
 
-export const ModalRegister = ({ onClickLogin }: ModalRegisterProps) => {
+export const ModalRegister = ({ onClickLogin, onFakeRegister }: ModalRegisterProps) => {
   const [passIsVisible, setPassIsVisible] = useState<boolean>(false);
 
   const togglePassVisibility = () => setPassIsVisible(!passIsVisible);
@@ -32,6 +33,7 @@ export const ModalRegister = ({ onClickLogin }: ModalRegisterProps) => {
   });
 
   function handleRegister(formData: RegisterFormType) {
+    onFakeRegister()
   }
 
   return (

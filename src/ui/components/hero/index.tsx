@@ -1,36 +1,16 @@
-import CardMovieBig from '@/ui/components/cardMovieBig'
-import CardMovieSmall from '@/ui/components/cardMovieSmall'
-
+import { CardMovieBig } from '@/ui/components/cardMovieBig'
+import { CardMovieSmall } from '@/ui/components/cardMovieSmall'
+import { SectionTitle } from '../sectionTitle'
+import { heroMock } from '@/tasteless/mocks'
 import * as S from './styles'
-import SectionTitle from '../sectionTitle'
-
-const cardMocks = [{
-  id: 10101,
-  note: 10,
-  title: 'O Exorcismo',
-  imageUrl: 'https://i.imgur.com/arwlrhC.png'
-},
-{
-  id: 123123,
-  note: 10,
-  title: 'O Exorcismo',
-  imageUrl: 'https://images.squarespace-cdn.com/content/v1/5acd17597c93273e08da4786/1547847934765-ZOU5KGSHYT6UVL6O5E5J/Shrek+Poster.png'
-},
-{
-  id: 101212312301,
-  note: 10,
-  title: 'O Exorcismo',
-  imageUrl: 'https://i.imgur.com/arwlrhC.png'
-},
-]
 
 export function Hero() {
   return (
     <S.Wrapper>
       <CardMovieBig data={{
-          note: 10,
+          note: 8.2,
           title: 'Deadpool & Wolverine',
-          imageUrl: 'https://m.media-amazon.com/images/M/MV5BNzRiMjg0MzUtNTQ1Mi00Y2Q5LWEwM2MtMzUwZDU5NmVjN2NkXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg',
+          imageUrl: 'https://legadodamarvel.com.br/wp-content/uploads/2024/05/deadpool-wolverine-novo-e-melhor-poster-legadodamarvel.webp',
           description: "Deadpool recebe uma oferta da Autoridade de Variância Temporal para se juntar ao Universo Cinematográfico Marvel, mas em vez disso recruta uma variante do Wolverine para salvar seu universo da extinção.",
           generous: ["Comedy", "Action", "Adventure", "Superhero"],
           minutes: 160,
@@ -43,7 +23,7 @@ export function Hero() {
           Destaques também
         </SectionTitle>
         {
-          cardMocks.map((card) => <CardMovieSmall key={card.id} data={card}/>)
+          heroMock.map((card) => <CardMovieSmall key={card.id} data={card}/>)
         }
       </S.SmallCards>
     </S.Wrapper>

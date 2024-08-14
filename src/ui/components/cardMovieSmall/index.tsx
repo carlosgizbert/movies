@@ -12,7 +12,7 @@ interface CardMovieSmallProps {
   data: DataProps;
 }
 
-export default function CardMovieSmall({ data }: Readonly<CardMovieSmallProps>) {
+export function CardMovieSmall({ data }: Readonly<CardMovieSmallProps>) {
   const { note, title, imageUrl } = data;
 
   return (

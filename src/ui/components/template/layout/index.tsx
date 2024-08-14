@@ -6,7 +6,7 @@ interface LayoutProps {
   children: ReactNode
 }
 
-export default function Layout({ children }: Readonly<LayoutProps>) {
+export function Layout({ children }: Readonly<LayoutProps>) {
   return (
     <S.Wrapper>
       <Navbar />

@@ -14,9 +14,10 @@ import * as S from "./styles";
 
 interface ModalLoginProps {
   onClickRegister: () => void;
+  onFakeLogin: () => void;
 }
 
-export const ModalLogin = ({ onClickRegister }: ModalLoginProps) => {
+export const ModalLogin = ({ onClickRegister, onFakeLogin }: ModalLoginProps) => {
   const [passIsVisible, setPassIsVisible] = useState<boolean>(false);
 
   const togglePassVisibility = () => setPassIsVisible(!passIsVisible);
@@ -30,7 +31,9 @@ export const ModalLogin = ({ onClickRegister }: ModalLoginProps) => {
     resolver: zodResolver(loginFormSchema),
   });
 
-  function handleLogin(formData: LoginFormType) {}
+  function handleLogin(formData: LoginFormType) {
+    onFakeLogin()
+  }
 
   return (
     <Modal

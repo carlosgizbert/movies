@@ -7,7 +7,7 @@ interface SectionTitleProps {
   children: ReactNode
 }
 
-export default function SectionTitle({ children }: Readonly<SectionTitleProps>) {
+export function SectionTitle({ children }: Readonly<SectionTitleProps>) {
   return (
     <S.SectionTitle>
       <Rectangule />

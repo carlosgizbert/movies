@@ -14,7 +14,6 @@ export function Modal({
   isLoading = false,
 }: Readonly<ModalProps>) {
   const hasHeader = !!title || type === 'closable'
-  document.body.style.overflowY = open ? 'hidden' : 'auto'
 
   const handleOnClose = () => (!isLoading ? onClose : undefined)
 

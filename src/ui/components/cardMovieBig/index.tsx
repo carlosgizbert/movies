@@ -19,7 +19,7 @@ interface CardProps {
   data: DataProps;
 }
 
-export default function CardMovieBig({ data }: Readonly<CardProps>) {
+export function CardMovieBig({ data }: Readonly<CardProps>) {
   const { note, minutes, generous, year, title, imageUrl, description } = data;
 
   return (

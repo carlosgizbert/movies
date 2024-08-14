@@ -4,14 +4,24 @@ import { ModalLogin } from './login'
 
 type View = 'login' | 'register'
 
-export function ModalGlobal() {
+interface ModalGlobalProps {
+  onClose: () => void
+}
+
+export function ModalGlobal({ onClose }: ModalGlobalProps) {
   const [view, setView] = useState<View>('login')
 
   const modals = {
-    login: <ModalLogin onClickRegister={() => setView('register')} />
+    login: <ModalLogin
+      onFakeLogin={() => onClose()}
+      onClickRegister={() => setView('register')}
+      />
     ,
     register: (
-      <ModalRegister onClickLogin={() => setView('login')} />
+      <ModalRegister
+        onFakeRegister={() => onClose()}
+        onClickLogin={() => setView('login')}
+      />
     )
   }
 
