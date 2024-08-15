@@ -8,9 +8,8 @@ import { registerFormSchema, RegisterFormType } from "./schema";
 import { ErrorMessage } from "@/ui/components/errorMessage";
 import { FieldWrapper } from "@/ui/components/fieldWrapper";
 import { EyeClosed, EyeOpened } from "@/ui/components/icons";
-import { ButtonEye } from "../styles";
 import { Link } from "@/ui/components/link";
-import { useCreateAccount } from "@/services/user";
+import { ButtonEye } from "../styles";
 import * as S from "./styles";
 
 interface ModalRegisterProps {
@@ -24,18 +23,6 @@ export const ModalRegister = ({ onClickLogin, onFakeRegister }: ModalRegisterPro
   const togglePassVisibility = () => setPassIsVisible(!passIsVisible);
 
   const {
-    mutate: createAccount,
-    isPending
-  } = useCreateAccount({
-    onSuccess: () => {
-
-    },
-    onError: () => {
-
-    }
-  })
-
-  const {
     register,
     handleSubmit,
     formState: { errors },
@@ -44,8 +31,8 @@ export const ModalRegister = ({ onClickLogin, onFakeRegister }: ModalRegisterPro
     resolver: zodResolver(registerFormSchema),
   });
 
-  function handleRegister(formData: RegisterFormType) {
-    createAccount(formData)
+  function handleRegister() {
+    onFakeRegister()
   }
 
   return (
@@ -62,12 +49,7 @@ export const ModalRegister = ({ onClickLogin, onFakeRegister }: ModalRegisterPro
       }
     >
       <S.Container>
-        {isPending && (
-          <S.Title>Por favor aguarde...</S.Title>
-        )}
-        {!isPending && (
-          <>
-          <form onSubmit={handleSubmit(handleRegister)}>
+      <form onSubmit={handleSubmit(handleRegister)}>
           <FieldWrapper>
             <Field
               {...register("name")}
@@ -134,8 +116,6 @@ export const ModalRegister = ({ onClickLogin, onFakeRegister }: ModalRegisterPro
           Já tem uma conta?{" "}
           <Link onClick={onClickLogin}>Fazer login</Link>
         </S.Text>
-          </>
-        )}
       </S.Container>
     </Modal>
   );

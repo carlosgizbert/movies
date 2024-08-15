@@ -31,7 +31,7 @@ export const ModalLogin = ({ onClickRegister, onFakeLogin }: ModalLoginProps) =>
     resolver: zodResolver(loginFormSchema),
   });
 
-  function handleLogin(formData: LoginFormType) {
+  function handleLogin() {
     onFakeLogin()
   }
 
