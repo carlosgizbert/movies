@@ -2,6 +2,7 @@
 # Projeto Vite com Bun
 
 # Como configurar e rodar a aplicação com [Vite](https://vitejs.dev/) usando [Bun](https://bun.sh/) como gerenciador de pacotes.
+# Deploy AWS: https://main.d22w9j6e669nqm.amplifyapp.com/
 
 ## Pré-requisitos
 
